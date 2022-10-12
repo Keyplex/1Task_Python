@@ -13,10 +13,35 @@ goods = []
 number = 0
 
 print('Введите одной строкой название товара, цену, количество и единицу измерения')
-print('В качестве разделителя позиций используйте только один символ запятой')
+print('Писать пример так: Павел, 100, 100, кг')
 print('Значения цены и количества должны быть целочисленными')
 print('Для завершения введите пустую строку')
 
 while True:
     number += 1
     goodList = input(f'{number} товар: ').split(',')
+    if goodList == ['']:
+        break
+
+    goods.append((number, {'Наименование': goodList[0],
+                           'Цена': int(goodList[1]),
+                           'Количество': int(goodList[2]),
+                           'Ед. изм.': goodList[3]}))
+
+goodDict = {}
+
+for i, el in enumerate(list(goods[0][1].keys())):
+    goodDict[el] = []
+
+for i, el in enumerate(goodDict):
+    dict_list = []
+
+    for j, el_good in enumerate(goods):
+        key_val = el_good[1].get(el)
+
+        if key_val not in dict_list:
+            dict_list.append(key_val)
+
+    goodDict[el] = dict_list
+
+print(goodDict)
