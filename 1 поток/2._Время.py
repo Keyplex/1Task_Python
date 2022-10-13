@@ -3,18 +3,9 @@
 # Используйте форматирование строк.
 
 sec = int(input("Введите время в секундах: "))
-min = sec // 60
-sec %= 60
-hours = min // 60
-min %= 60
 
-if hours > 99:
-    print("Вы слишком большое число, часов не подходит под формат чч:мм:сс")
-else:
-    sec_1 = sec % 10
-    sec_10 = sec // 10
-    min_1 = min % 10
-    min_10 = min // 10
-    hours_1 = hours % 10
-    hours_10 = hours // 10
-print(f'{hours_10}{hours_1}:{min_10}{min_1}:{sec_10}{sec_1}')
+hour = sec // 3600
+min = (sec - hour * 3600) // 60
+secs = sec - (hour * 3600 + min * 60)
+
+print(f"Введенное значение эквивалентно: {hour}:{min}:{secs}")
