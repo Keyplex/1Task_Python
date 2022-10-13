@@ -13,8 +13,8 @@ goods = []
 number = 0
 
 print('Введите одной строкой название товара, цену, количество и единицу измерения')
-print('Писать пример так: Павел, 100, 100, кг')
-print('Значения цены и количества должны быть целочисленными')
+print('Пример так: Павел, 100, 100, кг')
+print('Цена и количества только целочисленными!')
 print('Для завершения введите пустую строку')
 
 while True:
@@ -22,7 +22,6 @@ while True:
     goodList = input(f'{number} товар: ').split(',')
     if goodList == ['']:
         break
-
     goods.append((number, {'Наименование': goodList[0],
                            'Цена': int(goodList[1]),
                            'Количество': int(goodList[2]),
@@ -43,5 +42,4 @@ for i, el in enumerate(goodDict):
             dict_list.append(key_val)
 
     goodDict[el] = dict_list
-
 print(goodDict)
