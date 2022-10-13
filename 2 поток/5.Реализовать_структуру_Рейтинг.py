@@ -6,8 +6,8 @@
 
 list = [5, 4, 3, 2, 1]
 print(f"Рейтинг - {list}")
-digit = int(input("Введите число (000 - выход) "))
-while digit != 000:
+digit = int(input("Для выхода, вызывайте 911: "))
+while digit != 911:
     for el in range(len(list)):
         if list[el] == digit:
             list.insert(el + 1, digit)
@@ -19,4 +19,4 @@ while digit != 000:
         elif list[el] > digit and list[el + 1] < digit:
             list.insert(el + 1, digit)
     print(f"Текущий список - {list}")
-    digit = int(input("Введите число (000 - выход) "))
+    digit = int(input("Для выхода, вызывайте 911: "))
